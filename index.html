@@ -6,5 +6,90 @@
 	</head>
 	<body>
 		<span>或许这就是开始</span>
+		<div>原始数据类型</div>
+		<div>Number Boolean String Null Undefined Symbol</div>
+		<div>typeof null   输出 object </div>
+		<div>typeof 除了function   其他引用类型都输出 object </div>
+		<div>用于实例和构造函数的对应来判断    instanceof Array   来判断是否为数组</div>
+		<div>如何理解原型</div>
+		<div>1、所有引用类型，都具有对象特征，即可扩展属性</div>
+		<div>2、所有引用类型，都具有_proto_属性，属性值是一个普通对象</div>
+		<div>3、所有函数，都有一个protocoltype属性，属性值也是一个普通对象</div>
+		<div>4、所有引用类型的_proto_属性都指向它构造函数的prototype属性</div>
+		<div>要点一：自由扩展属性</div>
+		<div>	var obj = {}; obj.a = 100;
+				var arr = []; arr.a = 100;
+				function fn () {}
+				fn.a = 100;
+		</div>
+		<div>// 要点二：__proto__</div>
+		<div>
+				console.log(obj.__proto__);
+				console.log(arr.__proto__);
+				console.log(fn.__proto__);
+		</div>
+		<div>	// 要点三：函数有 prototype
+				console.log(fn.prototype)
+		</div>
+		<div>
+				// 要点四：引用类型的 __proto__ 属性值指向它的构造函数的 prototype 属性值
+				console.log(obj.__proto__ === Object.prototype)
+		</div>
+		<div>判断属性是不是对象本身的属性   hasOwnProperty   f.hasOwnProperty(item)  返回值   true or false</div>
+		<div></div>
+		<script>
+			function Father (name,age){
+				this.name = name;
+				this.age = age;
+			}
+			Father.prototype.log = function(){
+				console.log(this.name+':'+this.age)
+			} 
+			var aaa = new Father('zhangsan',25)
+			aaa.log();
+			class Fath {
+				constructor(name,age){
+					this.name = name;
+					this.age = age;
+				}
+				add(){
+					console.log(this.name+":"+this.age)
+				}
+			}
+			var bbb = new Fath('lisi',25)
+			bbb.add();
+			function Animal (){
+				this.eat = function(){
+					console.log('animal eat')
+				}
+			}
+			function Dog (){
+				this.say = function(){
+					console.log('dog say')
+				}
+			}
+			Dog.prototype = new Animal();
+			var ccc = new Dog();
+			ccc.eat();
+			class Ani {
+				constructor(name){
+					this.name = name;
+				}
+				eat(){
+					console.log(this.name+'ani')
+				}
+			}
+			class Cat extends Ani{
+				constructor(name){
+					super(name);
+					this.name = name;
+				}
+				say(){
+					console.log(this.name+'cat')
+				}
+			}
+			var ddd = new Cat('haha');
+			ddd.eat();
+		</script>
 	</body>
 </html>
