@@ -38,7 +38,7 @@ export default {
 }
   ul{
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     height: 50px;
@@ -46,6 +46,7 @@ export default {
     padding-left: 0;
     margin: 0;
     border-top: 1px solid #eee;
+    background: deepskyblue;
   }
   ul a{
     list-style: none;

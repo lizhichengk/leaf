@@ -150,6 +150,7 @@ export default {
     position: absolute;
     left: 50%;
     margin-left: -183px;
+    padding-bottom: 50px;
   }
   .block{
     position: relative;
