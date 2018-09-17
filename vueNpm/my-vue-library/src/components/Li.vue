@@ -8,6 +8,9 @@
 const defaultStyle = {
     height:"45px",
     lineHeight:"45px",
+    listStyle:"none",
+    fontSize:"14px",
+    clear:"both"
 }
 export default {
     props:{
@@ -29,12 +32,7 @@ export default {
     }    
 }
 </script>
-<style>
-    li{
-        list-style: none;
-        font-size: 14px;
-        clear: both;
-    }
+<style scoped>
     li span:nth-of-type(1){
         float: left;
     }
